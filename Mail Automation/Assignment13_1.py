@@ -11,6 +11,7 @@ from email.mime.base import MIMEBase
 from email import encoders
 import schedule
 
+# Function for mail sending
 def send_emails(email_list,path,pswd):
 
     # Setup port number and server name
@@ -24,15 +25,15 @@ def send_emails(email_list,path,pswd):
 
 
     # name the email subject
-    subject = "Assignment 13: Duplicate log files from given directory"
+    subject = "Duplicate log files from given directory"
 
     for person in email_list:
 
         # Make the body of the email
         body = f"""
-        Hello Sir,
+        Hello,
 
-        Attached is the log file of all deleted log files. For testing purposes, the mail is sent each minute. Apology for the late submission.
+        Attached is the log file of all deleted log files. 
 
         Thanks,
         Vishal
@@ -176,7 +177,7 @@ def main():
         Duplicate = FileDuplicate(argv[1])
         path = LogDuplicate(Duplicate)
         DeleteFiles(Duplicate)
-        email_list = ["vjadhav@clemson.edu","marvellousinfosystem@gmail.com"]
+        email_list = ["vjadhav@clemson.edu","vishal.jaadhav@viman.ai"]
 
         send_emails(email_list,path, argv[3])
 
